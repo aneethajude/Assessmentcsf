@@ -30,7 +30,8 @@ import ibf2022.batch2.csf.backend.repositories.ImageRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:4200")
+
 public class UploadController {
 
 	@Autowired

@@ -31,7 +31,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-
 public class UploadController {
 
 	@Autowired

@@ -1,1 +1,38 @@
-<p>view0 works!</p>
+<form [formGroup]="view0Form"> 
+    <div class="d-flex justify-content-center" style="margin-top: 20px;"><span>Photo Storage</span></div>
+    <div style="padding: 20px;">
+        <div class="mb-3 row" align="center">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" align="center">
+                <input type="submit" value="Upload" name="btnUpload" id="btnUpload" class="btn btn-primary" (click)="fnUpload()"/>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+
+    <div class="list-group">
+        <div *ngIf="bundleList != null && bundleList.length > 0 != null; then thenBlock else elseBlock"></div>
+    </div>
+    <ng-template #thenBlock>
+        <div class="mb-3 row" style="padding-top: 20px;">
+            <table class="table table-bordered">
+              <thead class="table-success">
+                <tr align="center">
+                  <th width="20%" scope="col">Name</th>
+                  <th width="10%" scope="col">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bundle of bundleList" valign="middle">
+                  <td width="20%" scope="row">{{bundle.name}}</td>
+                  <td width="10%" scope="row">{{bundle.date}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </ng-template>
+
+    <ng-template #elseBlock>
+
+    </ng-template>
+</form>

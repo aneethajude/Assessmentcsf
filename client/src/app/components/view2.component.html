@@ -1,1 +1,43 @@
-<p>view2 works!</p>
+<form [formGroup]="view2Form">
+    <div class="d-flex justify-content-center" style="padding: 20px;"><span style="font-weight: bold; color: darkgreen;">Movie Name</span></div>
+    <div class="list-group">
+        <div *ngIf="bundleList != null && bundleList.length > 0 != null; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <div class="list-group-item list-group-item-action flex-column align-items-start"
+            *ngFor="let bundle of bundleList">
+            <div class="row">
+                <div class="col-sm-3">
+                    <span>Name</span>
+                </div>
+                <div class="col-sm-9">
+                    <span>{{bundle.name}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <span>title</span>
+                </div>
+                <div class="col-sm-9">
+                    <span>{{bundle.title}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <span>comments</span>
+                </div>
+                <div class="col-sm-9">
+                    <span>{{bundle.comments}}</span>
+                </div>
+            </div>
+            <div class="row" *ngFor="let url of bundle.urls">
+                <img src="{{url}}" alt="" style="width: 150px; height: 150px"
+                            class="rounded-circle" />
+            </div>
+            </div>
+        </ng-template>
+        <ng-template #elseBlock>
+
+        </ng-template>
+    </div>
+    <input type="button" value="Back" name="btnBack" id="btnBack" class="btn btn-primary" (click)="getBack()"/>
+</form>
